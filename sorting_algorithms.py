@@ -9,7 +9,6 @@ def bubble_sort(array):
                 swap = True
         if swap == False:
             break
-    return array
 
 def recursive_bubble_sort(array):
     l = len(array) 
@@ -20,7 +19,6 @@ def recursive_bubble_sort(array):
                 array = recursive_bubble_sort(array)
         except:
             pass
-    return array
 
 #Selection sort
 def selection_sort(array):
@@ -31,7 +29,6 @@ def selection_sort(array):
             if(array[j] < array[min_index]):
                 min_index = j
         array[min_index], array[i] = array[i], array[min_index]
-    return array
 
 #Insertion sort
 def insertion_sort(array):
@@ -43,18 +40,29 @@ def insertion_sort(array):
             array[j+1] = array[j]
             j -=1
         array[j+1] = insert
-    return array
 
+def recursive_insertion_sort_wrapper(array):
+    l = len(array)
+    recursive_insertion_sort(array, l)
+    
+def recursive_insertion_sort(array, n):
+    if n == 1:
+        return
+
+    recursive_insertion_sort(array, n - 1)
+    insert = array[n-1]
+    j = n - 2
+    while j >= 0 and insert < array[j]:
+        array[j+1] = array[j]
+        j -= 1
+    array[j+1] = insert
 
 
 
 #FUNCTION TESTING
+base_array = [64, 34, 25, 12, 22, 11, 90]
 
-#unsorted_array = [1]
-unsorted_array = [64, 34, 25, 12, 22, 11, 90]
-#unsorted_array = [1, 2, 25, 3, 4, 5, 6] 
-
-sorted_array = insertion_sort(unsorted_array)
+recursive_bubble_sort(base_array)
 
 print("Sorted Array")
-print(sorted_array)
+print(base_array)
