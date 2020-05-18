@@ -60,9 +60,11 @@ def recursive_insertion_sort(array, n):
 
 
 #FUNCTION TESTING
-base_array = [64, 34, 25, 12, 22, 11, 90]
+if __name__ == '__main__':
+    
+    base_array = [64, 34, 25, 12, 22, 11, 90]
 
-recursive_bubble_sort(base_array)
+    recursive_bubble_sort(base_array)
 
-print("Sorted Array")
-print(base_array)
+    print("Sorted Array")
+    print(base_array)
